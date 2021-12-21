@@ -1,13 +1,14 @@
 import React from "react";
+import Box from './Box'
 
 export default function RenderComandos(props) {
-  return (
+    return (
     <div className="my-4">
       {props.comandos.map((itm) => (
         <div className="card my-3 shadow p-3 mb-5 bg-white rounded  " key={itm._id}>
             <div className="card-header d-flex justify-content-between">
                <h5 className=" text-center render-comando">{itm.comando}</h5>
-               <i className="bi bi-pencil"> </i>
+               <i className="bi bi-pencil" onClick={()=>props.selectEditComando(itm._id)}> </i>
             </div>
           <div className="card-body render-descripcion">
             <h6 className="card-title">Descripcion:

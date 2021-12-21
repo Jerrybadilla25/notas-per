@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Formtema(props) {
     return (
-    <div className="mt-4 px-3 py-3">
+    <div className="mt-4 px-3 py-3 view-h">
       <form className='form-comando' onSubmit={props.addTemaNuevo} >
       <h5 className="mb-3 l-red">Agergar tema</h5>
         <div className="form-group">

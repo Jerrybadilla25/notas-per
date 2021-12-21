@@ -11,11 +11,8 @@ const newTema = new Shema({
     descripcion: {type: String},
     fecha: { type: Date, default: Date.now},
     comandos: [{
-        comando : {type: String},
-        descripcion: {type: String},
-        ejm: {type: String},
-        link: {type: String},
-        fecha: { type: Date, default: Date.now} 
+        type: Shema.Types.ObjectId,
+        ref: "comando"
     }]
 });
 

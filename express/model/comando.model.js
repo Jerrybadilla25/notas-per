@@ -2,9 +2,6 @@ const mongoose = require('mongoose');
 const Shema = mongoose.Schema;
 
 
-
-
-
 const newComando = new Shema({
     comando : {type: String},
     descripcion: {type: String},
@@ -12,6 +9,5 @@ const newComando = new Shema({
     link: {type: String},
     fecha: { type: Date, default: Date.now},
 });
-
 
 module.exports= mongoose.model('comando', newComando);

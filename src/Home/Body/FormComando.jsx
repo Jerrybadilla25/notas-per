@@ -1,9 +1,10 @@
 import React from "react";
 
+
 export default function FormComando(props) {
-  return (
+    return (
     <div className="mt-4 px-3 py-3 ">
-      <form className="form-comando" onSubmit={props.submitFormComando}>
+      <form className="form-comando" onSubmit={props.submitFormComando} >
         <h5 className="mb-3 l-red">Agergar comandos</h5>
         <div className="form-group mt-3">
           <label 
@@ -16,6 +17,7 @@ export default function FormComando(props) {
             aria-describedby="emailHelp"
             name="comando"
             onChange={props.datosFormComando}
+            
           />
           
         </div>
@@ -29,6 +31,7 @@ export default function FormComando(props) {
             id="exampleInputPassword1"
             name="descripcion"
             onChange={props.datosFormComando}
+           
           />
         </div>
         <div className="form-group mt-3">
@@ -41,6 +44,7 @@ export default function FormComando(props) {
            rows="3"
            name="ejm"
            onChange={props.datosFormComando}
+           
            >
            </textarea>
          </div>
@@ -54,12 +58,20 @@ export default function FormComando(props) {
             id="exampleInputPassword1"
             name="link"
             onChange={props.datosFormComando}
+            
           />
         </div>
-        
-        <button type="submit" className="btn btn-primary mt-2"> <i className="bi bi-cloud-arrow-up"></i> Guardar
-        </button>
+        <div>
+          <button type="submit" className="btn btn-primary mt-2">
+             <i className="bi bi-cloud-arrow-up"></i> Guardar
+          </button>
+        </div>
       </form>
     </div>
   );
+  
+  
+  
 }
+
+
