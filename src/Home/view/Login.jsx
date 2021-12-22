@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from '../Body/Footer'
 
 
 
@@ -9,8 +10,8 @@ export default function Login(props) {
   
   
   return (
-    <div className="row vh-100">
-      <div className="d-flex justify-content-center bg-black pb-5 pt-5">
+    <div className="row  bg-login">
+      <div className="d-flex justify-content-center vh-100  pb-5 pt-5">
         <div className="pb-5 pt-5">
           <form onSubmit={props.loginUp} className="form-login">
           <div className="form-group">
@@ -26,11 +27,11 @@ export default function Login(props) {
               onChange={props.datosLogin}
               
             />
-            <small id="emailHelp" className="form-text text-muted">
+            <small id="emailHelp" className="">
               Nunca compartiremos su correo electrónico con nadie más.
             </small>
           </div>
-          <div className="form-group">
+          <div className="form-group mt-4">
             <label className="label-login" htmlFor="exampleInputPassword1">
               Password
             </label>
@@ -43,13 +44,14 @@ export default function Login(props) {
               
             />
           </div>
-          <button type="submit" className="btn btn-primary mt-4">
-            Submit
+          <button type="submit" className="btn mt-4">
+          <i className="bi bi-box-arrow-right"></i> Login
           </button>
         </form>
         </div>
         
       </div>
+      <Footer/>
     </div>
       
   );

@@ -27,6 +27,13 @@ export default function Home(props) {
     });
   };
 
+  //logout
+  const logOut = ()=>{
+    setAuth(null);
+    setUserID("");
+    setRegLogin({});
+  }
+
   
   const loginUp = async (e)=>{
     e.preventDefault();
@@ -65,6 +72,7 @@ export default function Home(props) {
       <Body 
       userID={userID}
       ruta={props.ruta}
+      logOut={logOut}
       />
     )
   } 

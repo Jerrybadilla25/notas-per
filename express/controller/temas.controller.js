@@ -10,7 +10,7 @@ exports.addTema = async function (req, res) {
   await tema1.save();
   userId.temas.push(tema1._id);
   await userId.save();
-  let msj = { mesage: `El tema ${tema} ha sido creado` };
+  let msj = { message: `El tema ${tema} ha sido creado` };
   res.status(200).json(msj);
 };
 
@@ -29,7 +29,7 @@ exports.addComando = async function (req, res) {
   const tema1 = await Tema.findById(id);
   tema1.comandos.push(comando1._id);
   await tema1.save();
-  res.json({mesage: "Comando gardado correctamente"});
+  res.json({message: "Item guardado"});
 };
 
 exports.getComando = async function (req, res){
@@ -44,6 +44,17 @@ exports.editComando = async function (req, res) {
   const idtema = req.params.idtema;
   const datos = req.body;
   const comando = await Comando.findOneAndUpdate(idtema, datos);
-  res.json({mesage: "Doc editado"});
+  res.json({message: "Item modificado"});
 };
+
+exports.deleteComando = async function (req, res){
+   const idpadre = req.params.idpadre;
+   const idcomando = req.params.id;
+   await Comando.findByIdAndDelete(idcomando);
+   const temas = await Tema.findById(idpadre);
+   let idx=  temas.comandos.indexOf(idcomando);
+   temas.comandos.splice(idx, 1);
+   await temas.save();
+   res.json({message: "Item eliminado"});
+}
 

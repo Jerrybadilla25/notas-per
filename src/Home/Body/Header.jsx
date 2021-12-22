@@ -9,7 +9,7 @@ export default function Header(props) {
             {" "}
             <i className="bi bi-journal-album"></i> Notas personales
           </h5>
-          <button className="btn btn-light btn-sm px-2">
+          <button className="btn btn-light btn-sm px-2" onClick={props.logOut}>
             <i className="bi bi-door-open"> Salir</i>
           </button>
         </div>

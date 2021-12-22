@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import BodyCenter from "./Body/BodyCenter";
 import BodyLeft from "./Body/BodyLeft";
 import Footer from "./Body/Footer";
+import toast, { Toaster } from 'react-hot-toast';
 
 //import view
 import Header from "./Body/Header";
@@ -15,6 +16,37 @@ export default function Body(props) {
   const [idTema, setIdTema] = useState(null);
   const [msj, setMsj] = useState(null);
 
+
+  //toaster
+  const notify = (mesage) => toast.success(`${mesage}`,{
+    style: {
+      background: '#fff',
+      color: '#000000',
+    },
+  });
+
+  
+
+  
+
+
+  //boton delete
+  const deleteComando = async (id)=>{
+    const data = await fetch(`${props.ruta}/comando/${dataTema._id}/${id}`,{
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json",
+              "x-access-token": props.userID.token,
+            },
+    });
+    const res = await data.json();
+    setMsj(res);
+    renderTemas(dataTema._id);
+    let mesage = "Item Eliminado";
+    notify(mesage);
+    
+  }
 
   //edit comando
   const selectEditComando = (id)=>{
@@ -48,6 +80,8 @@ export default function Body(props) {
     const res = await data.json();
     setMsj(res);
     renderTemas(dataTema._id);
+    let mesage = "Item modificado";
+    notify(mesage);
   }
 
 //consultar temas por id
@@ -105,8 +139,11 @@ export default function Body(props) {
         },
     });
     const res = await data.json();
+    setMsj(res);
     getTemas();
     setEstadoBody("FormTema");
+    let mesage = "Tema nuevo creado";
+    notify(mesage);
     e.target.reset();
   }
 
@@ -131,9 +168,12 @@ export default function Body(props) {
           },
     });
     const res = await data.json();
+    setMsj(res);
     getTemas();
     renderTemas(dataTema._id);
     setEstadoBody("Temas");
+    let mesage = "Item creado";
+    notify(mesage);
   }
 
   const addComando = (id)=>{
@@ -154,6 +194,7 @@ export default function Body(props) {
       ID={props.userID._id}
       addTema={addTema}
       buttonHome={buttonHome}
+      logOut={props.logOut}
       />
       <div className="container">
         <div className="row">
@@ -179,12 +220,14 @@ export default function Body(props) {
               formComando={formComando}
               butonCancel={butonCancel}
               editComando={editComando}
+              deleteComando={deleteComando}
               />
             }
           </div>
           <div className="col-lg-1  col-sm-1 mt-3 mb-3 bg-gray col-lado-c"></div>
         </div>
       </div>
+      <Toaster/>
       <Footer/>
     </div>
   );

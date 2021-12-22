@@ -9,12 +9,12 @@ router.post('/comando/:id', verfyToken, Controller.addComando);
 router.post('/temas/:id',verfyToken,  Controller.addTema);
 
 
-
 router.get('/comando/:id',verfyToken, Controller.getComando);
 router.get('/temas/:id',verfyToken,  Controller.getTema);
 
 
 router.put('/comando/:idtema/:idcomando',verfyToken, Controller.editComando );
+router.delete('/comando/:idpadre/:id',verfyToken, Controller.deleteComando );
 
 
 

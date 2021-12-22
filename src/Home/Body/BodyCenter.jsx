@@ -30,6 +30,8 @@ export default function BodyCenter(props) {
           ? <RenderComandos 
            comandos={props.dataTema.comandos}
            selectEditComando={props.selectEditComando}
+           deleteComando={props.deleteComando}
+
            />
           : <Box/>
         }
