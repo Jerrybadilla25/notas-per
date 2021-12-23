@@ -41,9 +41,8 @@ exports.getComando = async function (req, res){
 
 exports.editComando = async function (req, res) {
   const idcomando = req.params.idcomando;
-  const idtema = req.params.idtema;
   const datos = req.body;
-  const comando = await Comando.findOneAndUpdate(idtema, datos);
+  const comando = await Comando.findByIdAndUpdate(idcomando, datos);
   res.json({message: "Item modificado"});
 };
 
@@ -58,3 +57,20 @@ exports.deleteComando = async function (req, res){
    res.json({message: "Item eliminado"});
 }
 
+exports.editTema = async function (req, res){
+  const id = req.params.id;
+  const data = req.body;
+  const temas= await Tema.findByIdAndUpdate(id, data);
+  res.json({msj: "Item editado"});
+}
+
+exports.deleteTema = async function (req, res){
+    const userID = req.params.iduser;
+    const idtema = req.params.id;
+    await Tema.findById(idtema);
+    const user = await User.findById(userID);
+    let idx = user.temas.indexOf(idtema);
+    user.temas.splice(idx, 1);
+    await user.save();
+    res.json({mesage: "Tema eliminado"});
+}

@@ -65,6 +65,7 @@ body{
     
 }
 
+
 /* leter */
 .render-tema{
     font-family: var(--font-fjalla);
@@ -143,6 +144,23 @@ body{
 }
 
 
+.icon-crud-tema{
+    padding-left: 1.5em;
+    color: var(--l-red);
+}
+
+.mas-crud{
+    font-family: var(--font-april);
+    letter-spacing: 1.3px;
+    margin-right: 20px;
+}
+.mas-crud:hover{
+    background-color: var(--bg-header-el);
+    border-radius: 10px;
+    padding: 5px;
+    width: 50px;
+    color: var(--l-white);
+}
 
 
 
