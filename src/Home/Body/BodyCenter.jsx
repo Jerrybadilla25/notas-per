@@ -38,7 +38,7 @@ export default function BodyCenter(props) {
             
             {
               crud === null 
-              ? <div><small 
+              ? <div className="pb-per"><small 
               className="mas-crud" 
               onClick={viewCrud}
               >Mas...</small></div>

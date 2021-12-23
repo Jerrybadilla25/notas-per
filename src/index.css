@@ -145,14 +145,24 @@ body{
 
 
 .icon-crud-tema{
-    padding-left: 1.5em;
     color: var(--l-red);
+    padding: 5px 8px 5px 20px;
+}
+.icon-crud-edit{
+    padding: 5px 8px 5px 8px;
+}
+.icon-crud-edit:hover{
+    background-color: var(--bg-header-el);
+    border-radius: 10px;
+    color: var(--l-white);
 }
 
 .mas-crud{
     font-family: var(--font-april);
     letter-spacing: 1.3px;
     margin-right: 20px;
+    padding-bottom: 10px;
+    
 }
 .mas-crud:hover{
     background-color: var(--bg-header-el);
@@ -162,6 +172,9 @@ body{
     color: var(--l-white);
 }
 
+.pb-per{
+    padding-bottom: 10px;
+}
 
 
 

@@ -16,7 +16,10 @@ export default function BodyLeft(props) {
             <div>
               {props.dataUser.map(itm => (
                 <div key={itm._id} className="my-3" >
-                  <h5 onClick={()=>props.renderTemas(itm._id)}>{itm.tema}</h5>
+                  <div>
+                    <h5 onClick={()=>props.renderTemas(itm._id)}>{itm.tema}</h5>
+                  </div>
+                  
                   <small>{itm.descripcion}</small>
                 </div>
               ))}
