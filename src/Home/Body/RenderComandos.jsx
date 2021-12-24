@@ -5,7 +5,7 @@ export default function RenderComandos(props) {
     return (
     <div className="my-4">
       {props.comandos.map((itm) => (
-        <div className="card my-3 shadow  mb-5 bg-white rounded " key={itm._id}>
+        <div className="card my-3 shadow  mb-5 bg-white rounded movil-card " key={itm._id}>
             <div className="card-header d-flex justify-content-between">
                <h5 className=" text-center render-comando">{itm.comando}</h5>
                

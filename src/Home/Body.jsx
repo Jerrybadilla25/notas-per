@@ -27,7 +27,11 @@ export default function Body(props) {
 
   //delete tema
   const deleteTema = async (id) => {
-    const data = await fetch(`${props.ruta}/tema/${props.userID._id}/${id}`, {
+    if(dataTema.comandos.length >=1){
+      let mesage = "Primero elimine los subelementos asociados ";
+      notify(mesage);
+    }else{
+      const data = await fetch(`${props.ruta}/tema/${props.userID._id}/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -37,10 +41,17 @@ export default function Body(props) {
     });
     const res = await data.json();
     setMsj(res);
-    renderTemas(formTema.id);
-    getTemas();
-    let mesage = "Tema eliminado";
-    notify(mesage);
+    if(dataUser[0]){
+      renderTemas(dataUser[0]._id);
+      getTemas();
+      let mesage = "Tema eliminado";
+      notify(mesage);
+    }else{
+      setEstadoBody("info");
+    }
+    }
+    
+    
   };
 
   //edit tema
@@ -159,7 +170,12 @@ export default function Body(props) {
 
   //funcion add tema
   const addTema = (id) => {
-    setEstadoBody("FormTema");
+    if(estadoBody !== "FormTema"){
+      setEstadoBody("FormTema");
+    }else{
+      setEstadoBody("Temas");
+    }
+    
   };
   const datosFormTema = (e) => {
     setFormTema({

@@ -4,7 +4,7 @@ export default function Header(props) {
   return (
     <>
       <div className="row py-3 bg-header ">
-        <div className="d-flex justify-content-between px-5">
+        <div className="d-flex justify-content-between px-2">
           <h5>
             {" "}
             <i className="bi bi-journal-album"></i> Notas personales
@@ -15,7 +15,7 @@ export default function Header(props) {
         </div>
       </div>
       <div className="row bg-search">
-        <div className="d-flex justify-content-between px-5 py-2">
+        <div className="d-flex justify-content-between px-5-per py-2">
           <div>
             <button 
             className="btn btn-sm px-2"

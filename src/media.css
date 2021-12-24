@@ -1,0 +1,27 @@
+@media only screen and (max-width: 768px) {
+    .bg-center{
+        border: none;
+    }
+    .p-5em{
+        padding: 2px;
+    }
+    .bg-center{
+        border: none;
+    }
+    .bg-gray{
+        background-color: var(--bg-gray);
+        padding: 1px;
+    }
+    .container{
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .row{
+        padding-left: 2px !important;
+        padding-right: 2px !important;
+    }
+    .px-5-per{
+        padding-left: 0.1rem !important;
+        padding-right: 0.1rem !important;
+    }
+}

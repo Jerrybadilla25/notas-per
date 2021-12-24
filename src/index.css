@@ -8,9 +8,9 @@
     --bg-white-smoke: rgb(162, 177, 243);
     --l-white: #fff;
     --l-red: rgb(116, 22, 22);
-    --font-fjalla:'Fjalla One', sans-serif;
-    --font-april: 'Abril Fatface', cursive;
-    --font-anton: 'Anton', sans-serif;
+    --font-fjalla:'Times New Roman', Times, serif;
+    --font-april: Arial, Helvetica, sans-serif;
+    --font-anton: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body{
@@ -181,12 +181,16 @@ body{
 /* ######################   Media Cueri   ###########################################*/
 
 
-@media only screen and (max-width: 768px) {
-    .bg-center{
-        border: none;
-    }
+.p-5em{
+    padding: 5em;
+}
+.px-5-per{
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
 }
 
+
+/*##################### display per ########################*/
 
 
 

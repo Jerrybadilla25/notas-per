@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function BobyInfo() {
     return (
-        <div className='mt-5 px-5 view-h'>
+        <div className='mt-5 p-5em view-h'>
             <h5 className='render-tema'>Bienvenido al bloc de notas</h5>
             <h6></h6>
             <p className='render-descripcion'>

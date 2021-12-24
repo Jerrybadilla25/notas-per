@@ -67,7 +67,7 @@ exports.editTema = async function (req, res){
 exports.deleteTema = async function (req, res){
     const userID = req.params.iduser;
     const idtema = req.params.id;
-    await Tema.findById(idtema);
+    await Tema.findByIdAndDelete(idtema);
     const user = await User.findById(userID);
     let idx = user.temas.indexOf(idtema);
     user.temas.splice(idx, 1);
