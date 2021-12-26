@@ -172,10 +172,12 @@ export default function Body(props) {
   const addTema = (id) => {
     if(estadoBody !== "FormTema"){
       setEstadoBody("FormTema");
+    }else if(dataUser[0]){
+      renderTemas(dataUser[0]);
+      setEstadoBody('Temas');
     }else{
-      setEstadoBody("Temas");
+      setEstadoBody('info');
     }
-    
   };
   const datosFormTema = (e) => {
     setFormTema({
