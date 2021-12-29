@@ -40,7 +40,7 @@ export default function FormEditComando(props) {
              <textarea 
              className="form-control" 
              id="exampleFormControlTextarea1" 
-             rows="3"
+             rows="7"
              name="ejm"
              onChange={props.datosFormComando}
              value={props.formComando.ejm}

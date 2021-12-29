@@ -15,8 +15,10 @@ export default function RenderComandos(props) {
               <small className="render-small">  {itm.descripcion}</small> 
             </h6>
             <h5 className="card-text py-3 px-3 render-ejm">
-              <small> </small>
-              {itm.ejm}
+              <pre><code>
+               {itm.ejm} 
+              </code></pre>
+              
             </h5>
             <a className="card-text render-a" href={itm.link}> {itm.link}</a> 
           </div>
