@@ -1,4 +1,0 @@
-
-RUTA = http://localhost:4002/api
-
-RUTA = http://notas.jerrybadilla.ml/api
