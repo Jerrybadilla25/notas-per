@@ -23,13 +23,19 @@ exports.getTema = async function (req, res) {
 
 exports.addComando = async function (req, res) {
   const id = req.params.id;
-  const { comando, descripcion, ejm, link } = req.body;
-  const comando1 = new Comando({comando, descripcion, ejm, link  });
-  await comando1.save();
-  const tema1 = await Tema.findById(id);
-  tema1.comandos.push(comando1._id);
-  await tema1.save();
-  res.json({message: "Item guardado"});
+  if(id){
+    const { comando, descripcion, ejm, link } = req.body;
+    const comando1 = new Comando({comando, descripcion, ejm, link  });
+    await comando1.save();
+    const tema1 = await Tema.findById(id);
+    tema1.comandos.push(comando1._id);
+    await tema1.save();
+    res.json({message: "Item guardado"});
+  }else{
+    console.log("no existe id")
+    res.json({message: "Item guardado"});
+  }
+  
 };
 
 exports.getComando = async function (req, res){

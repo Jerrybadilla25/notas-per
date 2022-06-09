@@ -28,7 +28,7 @@ export default function Header(props) {
             <small className="text-muted px-2">Add tema nuevo</small>
             <button
               className="btn btn-sm px-2"
-              onClick={() => props.addTema(props.ID)}
+              onClick={props.addTema}
             >
               <i className="bi bi-folder-plus"></i>
             </button>

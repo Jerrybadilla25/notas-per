@@ -155,29 +155,38 @@ export default function Body(props) {
 
   //render temas en body
   const renderTemas = async (id) => {
-    const data = await fetch(`${props.ruta}/comando/${id}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        "x-access-token": props.userID.token,
-      },
-    });
-    const res = await data.json();
-    setDataTema(res);
-    setEstadoBody("Temas");
+    console.log(id)
+    try {
+      const data = await fetch(`${props.ruta}/comando/${id}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          "x-access-token": props.userID.token,
+        },
+      });
+      const res = await data.json();
+      setDataTema(res);
+      setEstadoBody("Temas");
+    } catch (error) {
+      
+    }
   };
 
   //funcion add tema
-  const addTema = (id) => {
-    if(estadoBody !== "FormTema"){
-      setEstadoBody("FormTema");
-    }else if(dataUser[0]){
-      renderTemas(dataUser[0]);
-      setEstadoBody('Temas');
-    }else{
-      setEstadoBody('info');
-    }
+  const addTema = () => {
+      try {
+        if(estadoBody !== "FormTema"){
+          setEstadoBody("FormTema");
+        }else if(dataUser[0]){
+          renderTemas(dataUser[0]._id);
+          setEstadoBody('Temas');
+        }else{
+          setEstadoBody('info');
+        }
+      } catch (error) {
+        setEstadoBody("info")
+      }
   };
   const datosFormTema = (e) => {
     setFormTema({
@@ -187,8 +196,9 @@ export default function Body(props) {
   };
 
   const addTemaNuevo = async (e) => {
-    e.preventDefault();
-    const data = await fetch(`${props.ruta}/temas/${props.userID._id}`, {
+    try {
+      e.preventDefault();
+      const data = await fetch(`${props.ruta}/temas/${props.userID._id}`, {
       method: "POST",
       body: JSON.stringify(formTema),
       headers: {
@@ -204,6 +214,9 @@ export default function Body(props) {
     let mesage = "Tema nuevo creado";
     notify(mesage);
     e.target.reset();
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   //llenar datos con el formulario comandos
